@@ -1,4 +1,5 @@
 azure-functions
 Flask
+tensorflow-cpu
 Pillow
 numpy
