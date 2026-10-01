@@ -1,0 +1,4 @@
+azure-functions
+Flask
+Pillow
+numpy
