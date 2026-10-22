@@ -4,5 +4,7 @@ _cache = {}
 
 def get_model(name):
     if name not in _cache:
-        _cache[name] = keras.saving.load_model(os.path.join(_BASE, f"{name}.keras"))
+        _cache[name] = keras.saving.load_model(
+            os.path.join(_BASE, f"{name}.keras"), compile=False
+        )
     return _cache[name]
