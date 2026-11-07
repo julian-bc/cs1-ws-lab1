@@ -3,3 +3,4 @@ Flask
 tensorflow-cpu
 Pillow
 numpy
+paho-mqtt
