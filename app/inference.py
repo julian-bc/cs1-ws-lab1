@@ -26,8 +26,7 @@ def predict_catsdogs(file_stream):
     except Exception as e:
         raise InvalidImage() from e
     p = get_model("catsdogs").predict(x, verbose=0)
-    logit = float(p[0][0])
-    score = 1.0 / (1.0 + np.exp(-logit))
+    score = float(p[0][0])
 
     cat_pct = round(100 * (1 - score), 2)
     dog_pct = round(100 * score, 2)
