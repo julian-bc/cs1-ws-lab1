@@ -6,8 +6,8 @@ API de clasificación de imágenes (dígitos MNIST y gato/perro) accesible por *
 
 | Protocolo | URL |
 | :--- | :--- |
-| HTTP | `https://<HOST>` |
-| MQTT | `mqtt://<HOST>:1883` (sin usuario) |
+| HTTP | `https://cs1-lab1.mexicocentral.cloudapp.azure.com` |
+| MQTT | `mqtt://cs1-lab1.mexicocentral.cloudapp.azure.com:1883` (sin usuario) |
 
 ## HTTP
 
@@ -18,7 +18,7 @@ API de clasificación de imágenes (dígitos MNIST y gato/perro) accesible por *
 | `POST` | `/catsdogs` | `x-api-key` | `image` (archivo, máx. 10 MB) | Probabilidad de gato o perro |
 
 ```bash
-curl -H "x-api-key: <API_KEY>" -F "image=@cat.jpg" https://<HOST>/catsdogs
+curl -H "x-api-key: <API_KEY>" -F "image=@cat.jpg" https://cs1-lab1.mexicocentral.cloudapp.azure.com/catsdogs
 ```
 
 ## MQTT
@@ -33,8 +33,8 @@ Los topics siguen las rutas HTTP. La API key no se envía; la pone el servidor.
 Payload: bytes de la imagen o texto Base64 (máx. 10 MB). Suscríbase a la respuesta **antes** de publicar.
 
 ```bash
-mosquitto_sub -h <HOST> -t "cs1-api/+/response"
-mosquitto_pub -h <HOST> -t cs1-api/catsdogs -f cat.jpg
+mosquitto_sub -h cs1-lab1.mexicocentral.cloudapp.azure.com -t "cs1-api/+/response"
+mosquitto_pub -h cs1-lab1.mexicocentral.cloudapp.azure.com -t cs1-api/catsdogs -f cat.jpg
 ```
 
 ## Respuestas
